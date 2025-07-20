@@ -1,8 +1,21 @@
 #!/bin/bash
 
-# Scan the local subnet for active hosts
-echo "[*] Scanning LAN for active devices..."
-subnet=$(ip route | grep -m1 src | awk '{print $1}')
-nmap -sn "$subnet" -oG - | awk '/Up$/{print $2}' | tee lan_scan_results.txt
-echo "[*] Results saved to lan_scan_results.txt"
+subnet="192.168.86.0/24"
+echo "Scanning LAN $subnet"
 
+nmap -sn "$subnet" | awk '
+  /^Nmap scan report for / {
+    host = $0
+    ip = $NF
+    sub(/Nmap scan report for /, "", host)
+    getline
+    getline
+    if ($0 ~ /MAC Address:/) {
+      mac = $3
+      vendor = substr($0, index($0,$4))
+    } else {
+      mac = "N/A"
+      vendor = "N/A"
+    }
+    printf "%-40s %-16s %-20s %s\n", host, ip, mac, vendor
+  }'
