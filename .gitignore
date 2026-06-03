@@ -1,0 +1,5 @@
+config/home_network.conf
+data/
+*.log
+*_results.txt
+sdcard_backup_*.img

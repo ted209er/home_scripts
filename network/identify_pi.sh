@@ -3,11 +3,11 @@
 echo "🔎 Identifying Raspberry Pi..."
 
 # Hostname
-echo -e "\n📛 Hostname: $(hostname)"k
+echo -e "\n📛 Hostname: $(hostname)"
 
 # Os + Version
 echo -e "\n🧠 OS Info:"
-cat /etc/os-release | grep PRETTY_NAME
+grep PRETTY_NAME /etc/os-release
 
 # Model & SoC
 echo -e "\n 💻 Hardware Info:"

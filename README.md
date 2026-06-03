@@ -24,6 +24,21 @@ cd home_scripts
 bash setup/install_docker.sh
 ```
 
+### Network configuration
+
+Network scripts discover directly connected IPv4 subnets automatically. To pin the subnets that should be scanned, copy the example config and edit it:
+
+```bash
+cp config/home_network.conf.example config/home_network.conf
+```
+
+You can also pass a subnet directly:
+
+```bash
+network/scan_lan.sh 192.168.86.0/24
+network/port_22_lan_scan.sh 192.168.86.0/24
+```
+
 ## Additions Coming Soon
 
 - Mesh monitoring hooks

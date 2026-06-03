@@ -1,0 +1,10 @@
+# Copy this file to config/home_network.conf and adjust it for your LAN.
+# Scripts also support HOME_NETWORK_CONFIG=/path/to/file.
+
+# Leave empty to let scripts auto-detect directly connected IPv4 subnets.
+HOME_NETWORK_SUBNETS=(
+  "192.168.86.0/24"
+)
+
+# Local generated scan/log data lives here by default.
+HOME_SCRIPTS_DATA_DIR="data"
