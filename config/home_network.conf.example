@@ -8,3 +8,12 @@ HOME_NETWORK_SUBNETS=(
 
 # Local generated scan/log data lives here by default.
 HOME_SCRIPTS_DATA_DIR="data"
+
+# Targets used by latency checks. Scripts also include the default gateway when available.
+HOME_LATENCY_TARGETS=(
+  "1.1.1.1"
+  "8.8.8.8"
+)
+
+# Number of ICMP echo requests sent to each latency target.
+HOME_LATENCY_PING_COUNT=5

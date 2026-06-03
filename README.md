@@ -39,6 +39,20 @@ network/scan_lan.sh 192.168.86.0/24
 network/port_22_lan_scan.sh 192.168.86.0/24
 ```
 
+### Latency and bandwidth checks
+
+Run latency checks against your gateway and configured public targets:
+
+```bash
+network/latency_check.sh
+```
+
+Run a bandwidth test and save timestamped results under `data/bandwidth/`:
+
+```bash
+monitoring/test_speed.sh
+```
+
 ## Additions Coming Soon
 
 - Mesh monitoring hooks
